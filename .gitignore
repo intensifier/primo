@@ -1,7 +1,7 @@
 .env 
 .DS_Store
 .vercel_build_output
-
+.svelte-kit
 node_modules
 desktop/out
 desktop/build
@@ -11,3 +11,7 @@ desktop/dist
 server/.svelte-kit
 cli
 scratchpad.md
+/test-results/
+/playwright-report/
+/playwright/.cache/
+pnpm-lock.yaml

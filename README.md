@@ -1,23 +1,86 @@
-![screenshot](./screenshot2.png)
+<p align="center">
+  <a href="https://primocms.org#gh-dark-mode-only" target="_blank">
+    <img src="https://raw.githubusercontent.com/primocms/primo/master/static/logo.svg" alt="Primo" width="200px">
+  </a>
+  <a href="https://primocms.org#gh-light-mode-only" target="_blank">
+    <img src="https://raw.githubusercontent.com/primocms/primo/master/static/logo-light.svg" alt="Primo" width="200px">
+  </a>
+</p>
 
-# Primo
-Primo is a component-based CMS that makes it easy to build visually-editable static sites. Instead of developing your website by editing files, Primo lets you build web pages out of individual components (or sections) containing both code *and* content. By embedding a development environment alongside the CMS, Primo enables you to make site modifications on the fly and build/integrate components that can be used by content editors (who don't have access to the code) to arrange pages and sites section by section. Primo also gives content editors an ideal page building and content management experience that enables anyone to easily update component content, write copy directly on the page, and publish site changes. When you publish and update your site, Primo compiles and deploys it as a static site (with no JS by default) to Verce, Netlify, Github, etc. 
+<h3 align="center">The modern monolithic CMS</h3>
+<p align="center">Primo makes it a blast to build pages, update content, and edit code - one block at a time.</p>
 
-## Features
-- radically **simpler content editing** - focused fields for components, content & on-page editing for editorial content
-- a powerful **component-editor** which you can use to modify any component on your site, applying updates to all instances of that component across your site
-- a **component library** for managing the  components used on a site (including importing components from other primo sites or building new ones from scratch)
-- **component packs** and templates built with clean, editable code. 
-- **static site generation** which builds and uploads minimal HTML, CSS, and framework-less JavaScript files to your connected host. 
-- **static host and Github integration** which creates a new Vercel/Netlify sites and Github repos for new primo sites, and updates them when you publish updates to your site. 
+<p align="center">
+    <a href="https://primocms.org/">Primocms.org</a> •
+    <a href="https://discord.com/invite/DMQshmek8m">Discord</a> •
+    <a href="https://docs.primocms.org/">Docs</a> •
+    <a href="https://primocms.org#section-b18b744b-92ba-4bf9-96fd-4d86c0a842b8">Newsletter</a> •
+    <a href="https://www.youtube.com/@primocms">YouTube</a>
+</p>
 
-## Tech
-Most of Primo's functionality and productivity advantages are due to Svelte - a compiler and UI language that extends HTML/CSS/JS's functionality to enable templating, style encapsulation, component-driven development, complex interactions and app-like functionality. primo pages are made of Svelte components and doc-like content sections (written with [TipTap](https://tiptap.dev/)), and the Svelte compiler turns those pages into clean HTML, CSS, and vanilla JavaScript that it uploads to a web host or Github repo. 
+![screenshot](https://github.com/primocms/primo/raw/master/screenshot-v2.png)
 
-## How to get started
-It's incredibly easy to build a site with Primo. Technically, you don't even have to write any code (though it's highly encouraged). To get started, download the desktop application from [primo.so](https://primo.so).
+## ⭐ Why Primo? 
 
-To build from your browser, invite collaborators, and upload images, check out [Primo Server](https://github.com/primodotso/primo-server).
+Traditional monolithic CMSs like WordPress, Drupal, and Joomla enable quick setup and easy content editing, but rely on antiquated and heavy development practices (often relying on plugins and third-party services to customize the site and add new components). Headless CMSs have popped up to modernize the view layer with modern development practices and frameworks, but have a poorer content editing experience due to their decoupling from the content layer.
 
-## Contributing
-Primo has intentionally been a solo project since 2019 without much room for contributions due to the volatility of the codebase. But as we move into Beta more opportunities will be created to contribute code changes, so if you're interested in helping out let us know in the [Discord](https://discord.com/invite/UeNeTk6cF3).
+Primo is a modern approach to the monolithic CMS that builds on the traditional monolith's benefits of a quick setup and easy content editing alongside the benefits of modern development (i.e. Svelte). These combine into a web publishing tool that is significantly easier and more fun to use for both technical and non-technical users and enables you to build faster, more secure, and more unique websites.
+
+## ✨ Features
+
+- Visual, on-page content editing
+- Drag-and-drop page building with blocks
+- Integrated development environment for blocks and pages
+- Static site generation
+- Real-time page collaboration
+- Internationalization
+- Multisite (1 server = infinity sites)
+- Deploys to Github (i.e. any web host)
+
+[Read more in the Docs](https://docs.primocms.org)
+
+# How to self-host Primo
+Primo depends on several [freemium] third-party services for easy hosting, authentication, database and storage, etc. Running your own Primo server is as easy as forking the [**Primo repo**](<https://github.com/primocms/primo>) and deploying it on a static host like Vercel or Netlify, which should only take a few minutes.
+
+Third-party services (all can be signed into with Github):
+
+- A modern web host like [**Vercel**](<https://vercel.com/>) or [**Netlify**](<https://netlify.com>) to host the Primo application & published sites (note that Cloudflare Pages is currently [unsupported](https://github.com/primocms/primo/issues/365) for hosting Primo, but you can still use it for your sites).
+
+- A [**Supabase**](<https://supabase.com>) account to manage your server's authentication, database, and file storage.
+
+- A [**Github**](<https://github.com>) account to deploy your sites to (unless you plan on manually downloading/uploading your site files to a host).
+
+
+<!-- -->
+
+## Installation
+
+1. Ensure you have an account with all the services listed above.
+
+2. Create a new Supabase project, go to the SQL editor, add a new query and provision your project by copying the [**schema**](<https://raw.githubusercontent.com/mateomorris/primo/master/primo_schema.sql>) and pasting it into the editor.
+
+3. Fork the [**Primo repository**](<https://github.com/primocms/primo>).
+
+4. Go to your web host and create a new project from your new repository, inputting your Supabase details (go to the API settings) as environment variables.
+
+    - PUBLIC\_SUPABASE\_URL
+
+    - PUBLIC\_SUPABASE\_PUBLIC\_KEY
+
+    - PRIVATE\_SUPABASE\_PRIVATE\_KEY
+
+![Environment Variables](https://dbfnrqvkgwkjkzqgnfrd.supabase.co/storage/v1/object/public/images/Screenshot%202023-05-06%20at%206.45.43%20PM.png)
+
+
+5. Publish the project and navigate to the Primo authentication screen.
+
+6. The user account you create will be the server owner. You can manage all your server's data from the Supabase project dashboard.
+
+7. Finally, go back to your Supabase project & set the Site URL to the URL of your Primo site (under Authentication > URL Configuration > Site URL).
+<img width="750" alt="Screenshot 2023-07-11 at 12 44 26 PM" src="https://github.com/primocms/primo/assets/39444813/aff51c73-3935-4523-bf89-71f86f3f8f09">
+
+
+For more details see this step-by-step installation [video guide](<https://www.youtube.com/watch?v=LEcKmhJsUzo>)
+
+## Updating
+You can merge upstream updates by clicking 'Sync fork' on your forked repository. Your updates will automatically deploy to your web host.
